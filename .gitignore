@@ -1,0 +1,30 @@
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.lock
+*.log
+*.rej
+*.swo
+*.swp
+*.zip
+*.vi
+*~
+
+# OS or Editor
+._*
+.DS_Store
+Thumbs.db
+.cache
+*.sublime-project
+*.sublime-workspace
+.idea
+.vscode
+
+# Other
+.sass-cache
+node_modules
+bower_components
+
+# Slim core
+vendor/*
