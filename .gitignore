@@ -1,30 +1,16 @@
-# Numerous always-ignore extensions
-*.diff
-*.err
-*.orig
-*.lock
-*.log
-*.rej
-*.swo
-*.swp
-*.zip
-*.vi
-*~
-
-# OS or Editor
-._*
-.DS_Store
-Thumbs.db
-.cache
-*.sublime-project
-*.sublime-workspace
-.idea
-.vscode
-
-# Other
-.sass-cache
-node_modules
-bower_components
-
-# Slim core
-vendor/*
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode

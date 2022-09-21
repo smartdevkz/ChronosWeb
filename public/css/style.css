@@ -1,9 +1,0 @@
-* {
-	box-sizing:border-box;
-}
-body {
-	font-family:Lucida,Tahoma,Helvetica,Arial;
-}
-ul.places li {
-	padding-bottom: 1.5em;
-}
