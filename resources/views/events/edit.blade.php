@@ -23,9 +23,28 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>Category:</strong>
+                    <select class="browser-default custom-select form-control col-md-2" name="category_id">
+                        <option selected>Select category</option>
+                        @foreach ($viewData["categories"] as $item)
+                        <option value="{{ $item->id }}" {{ ($item->id == $event->category_id)?'selected':'' }}> {{ $item->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('category_id')
+                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
                     <strong>Description:</strong>
                     <input type="text" name="description" value="{{ $event->description }}" class="form-control">
                     @error('description')
+                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <strong>Tags:</strong>
+                    <input type="text" class="form-control" name="tags" value="{{ $event->tags }}"/>
+                    @error('tags')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>

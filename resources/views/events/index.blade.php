@@ -22,6 +22,7 @@
             <tr>
                 <th>ID</th>
                 <th>Description</th>
+                <th>Tags</th>
                 <th width="280px">Action</th>
             </tr>
         </thead>
@@ -30,6 +31,7 @@
             <tr>
                 <td>{{ $event->id }}</td>
                 <td>{{ $event->description }}</td>
+                <td>{{ $event->tags }}</td>
                 <td>
                     <form action="{{ route('events.destroy',$event->id) }}" method="Post">
                         <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">Edit</a>

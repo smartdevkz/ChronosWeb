@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\CategoryService;
 use App\Services\EventService;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
     private $eventService;
+    private $categoryService;
 
-    function __construct(EventService $eventService)
+    function __construct(EventService $eventService, CategoryService $categoryService)
     {
         $this->eventService = $eventService;
+        $this->categoryService = $categoryService;
     }
 
     public function index()
@@ -22,7 +25,10 @@ class EventController extends Controller
 
     public function create()
     {
-        return view('events.create');
+        $viewData = array();
+        $viewData["categories"] = $this->categoryService->getAll();
+
+        return view('events.create', compact('viewData'));
     }
 
     public function store(Request $request)
@@ -39,18 +45,32 @@ class EventController extends Controller
     public function edit($id)
     {
         $event = $this->eventService->get($id);
-        return view('events.edit', compact('event'));
+        $viewData["categories"] = $this->categoryService->getAll();
+        return view('events.edit', compact('event', 'viewData'));
     }
 
     public function update(Request $request)
     {
         $request->validate([
             'description' => 'required',
+            'category_id' => 'required',
         ]);
 
-        $this->eventService->update($request->post());
+        $event = $request->post();
+        $event['tags'] = $this->correctTags($event['tags']);
+        $this->eventService->update($event);
 
         return redirect()->route('events.index')->with('success', 'Event Has Been updated successfully');
+    }
+
+    function correctTags($value)
+    {
+        $items = explode(',', $value);
+        foreach ($items as &$value) {
+            $value = trim($value);
+        }
+        unset($value);
+        return implode(',', $items);
     }
 
     public function destroy($id)
@@ -58,5 +78,4 @@ class EventController extends Controller
         $this->eventService->delete($id);
         return redirect()->route('events.index')->with('success', 'Event has been deleted successfully');
     }
-
 }
