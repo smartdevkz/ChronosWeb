@@ -16,6 +16,7 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @yield('header')
 </head>
 
 <body>
@@ -86,5 +87,5 @@
         </main>
     </div>
 </body>
-
+@yield('footer')
 </html>

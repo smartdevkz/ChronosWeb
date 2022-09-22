@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\CategoryService;
+use App\Services\CountryService;
 use App\Services\EventService;
 use Illuminate\Http\Request;
 
@@ -10,11 +11,16 @@ class EventController extends Controller
 {
     private $eventService;
     private $categoryService;
+    private $countryService;
 
-    function __construct(EventService $eventService, CategoryService $categoryService)
-    {
+    function __construct(
+        EventService $eventService,
+        CategoryService $categoryService,
+        CountryService $countryService
+    ) {
         $this->eventService = $eventService;
         $this->categoryService = $categoryService;
+        $this->countryService = $countryService;
     }
 
     public function index()
@@ -27,6 +33,7 @@ class EventController extends Controller
     {
         $viewData = array();
         $viewData["categories"] = $this->categoryService->getAll();
+        $viewData["countries"] = $this->countryService->getAll();
 
         return view('events.create', compact('viewData'));
     }
@@ -45,6 +52,7 @@ class EventController extends Controller
     public function edit($id)
     {
         $event = $this->eventService->get($id);
+        $viewData["countries"] = $this->countryService->getAll();
         $viewData["categories"] = $this->categoryService->getAll();
         return view('events.edit', compact('event', 'viewData'));
     }
@@ -54,10 +62,12 @@ class EventController extends Controller
         $request->validate([
             'description' => 'required',
             'category_id' => 'required',
+            'country_id' => 'required',
         ]);
 
         $event = $request->post();
         $event['tags'] = $this->correctTags($event['tags']);
+
         $this->eventService->update($event);
 
         return redirect()->route('events.index')->with('success', 'Event Has Been updated successfully');

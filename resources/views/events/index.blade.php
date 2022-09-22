@@ -21,6 +21,8 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Category</th>
+                <th>Country</th>
                 <th>Description</th>
                 <th>Tags</th>
                 <th width="280px">Action</th>
@@ -30,6 +32,8 @@
             @foreach ($events as $event)
             <tr>
                 <td>{{ $event->id }}</td>
+                <td>{{ $event->category != null ? $event->category->name : '' }}</td>
+                <td>{{ $event->country != null ? $event->country->name : '' }}</td>
                 <td>{{ $event->description }}</td>
                 <td>{{ $event->tags }}</td>
                 <td>
