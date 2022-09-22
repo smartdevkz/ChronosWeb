@@ -34,13 +34,19 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('categories.index') }}"> Категориялар </a>
+                            <a class="nav-link" href="{{ route('events.index') }}"> Events </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('events.index') }}"> Оқиғалар </a>
+                            <a class="nav-link" href="{{ route('categories.index') }}"> Categories </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('countries.index') }}"> Countries </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tags.index') }}"> Tags </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('events.list') }}"> Compare </a>
                         </li>
                     </ul>
 
@@ -88,4 +94,5 @@
     </div>
 </body>
 @yield('footer')
+
 </html>

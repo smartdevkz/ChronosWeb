@@ -23,6 +23,11 @@ class EventController extends Controller
         $this->countryService = $countryService;
     }
 
+    public function list($categoryId = null, $countryId = null, $tags = '')
+    {
+        return view('events.compare');
+    }
+
     public function index()
     {
         $events = $this->eventService->getAll();

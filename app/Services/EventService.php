@@ -27,6 +27,7 @@ class EventService
     {
         $k = array_key_exists($key . "_is_before_christ", $event) ? -1 : 1;
         $timeUnit = $event[$key . "_time_unit"];
+        if ($timeUnit == 0) return null;
         $strVal = $event[$key . "_str"];
         if ($timeUnit == 3) {
             $time_input = strtotime($strVal);
