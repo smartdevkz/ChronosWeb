@@ -1,5 +1,5 @@
 <template>
-    <select @change="onChange($event)" v-model="timeunit" v-bind:name="id+'_time_unit'">
+    <select class="form-select" style="width:auto;" @change="onChange($event)" v-model="timeunit" v-bind:name="id+'_time_unit'">
         <option value="0">Не выбрано</option>
         <option value="1">Век</option>
         <option value="2">Тысячелетие</option>
