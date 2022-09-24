@@ -1,5 +1,21 @@
 <template>
     <div class="mb-3 row">
+        <label for="lstCountries" class="form-label">Страна</label>
+        <div class="col-sm-3">
+            <select id="lstCountries" @change="onCountryChange($event)" v-model="selectedCountry" class="form-select">
+                <option value="0">Not selected</option>
+                <option v-for="item in countries" v-bind:value="{ id: item.id, text: item.name }">
+                    {{ item.name }}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-8">
+            <span v-for="item in selectedCountries" class="badge text-bg-info" style="margin-right: 8px;">
+                {{ item.text}}
+                <i style="color: red;" @click="removeCountry(item)">X</i></span>
+        </div>
+    </div>
+    <div class="mb-3 row">
         <label for="lstCategories" class="form-label">Категория</label>
         <div class="col-sm-3">
             <select id="lstCategories" @change="onCategoryChange($event)" v-model="selectedCategory"
@@ -16,26 +32,10 @@
                 <i style="color: red;" @click="removeCategory(item)">X</i></span>
         </div>
     </div>
-    <div class="mb-3 row">
-        <label for="lstCountries" class="form-label">Категория</label>
-        <div class="col-sm-3">
-            <select id="lstCountries" @change="onCountryChange($event)" v-model="selectedCountry" class="form-select">
-                <option value="0">Not selected</option>
-                <option v-for="item in countries" v-bind:value="{ id: item.id, text: item.name }">
-                    {{ item.name }}
-                </option>
-            </select>
-        </div>
-        <div class="col-sm-8">
-            <span v-for="item in selectedCountries" class="badge text-bg-info" style="margin-right: 8px;">
-                {{ item.text}}
-                <i style="color: red;" @click="removeCountry(item)">X</i></span>
-        </div>
-    </div>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>TimeUnit</th>
+                <th>Дата</th>
                 <th v-for="item in selectedCountries" :key="item.id">
                     {{ item.text }}
                 </th>

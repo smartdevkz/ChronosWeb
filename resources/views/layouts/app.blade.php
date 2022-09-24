@@ -33,6 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        @auth
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('events.index') }}"> Events </a>
                         </li>
@@ -45,6 +46,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('tags.index') }}"> Tags </a>
                         </li>
+                        @endauth
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('events.list') }}"> Compare </a>
                         </li>
