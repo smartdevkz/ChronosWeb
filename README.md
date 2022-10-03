@@ -1,5 +1,5 @@
 <h4>Запуск проекта</h4>
-<p>Устанавливаем PHP (https://windows.php.net/download#php-8.1) </p>
+<p>Устанавливаем XAMPP (https://www.apachefriends.org/download.html) </p>
 <p>Устанавливаем Composer (https://getcomposer.org/download/)</p>
 <p>Устанавливаем Git (https://git-scm.com/downloads)</p>
 <p>Клонируем проект: <br/>
