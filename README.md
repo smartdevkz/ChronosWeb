@@ -16,3 +16,5 @@
 <p>Запускаем проект: <br />
   <code>php artisan serve</code>
 </p>
+
+<p><a href="https://chronos.smartdev.kz/">Demo</a></p>
