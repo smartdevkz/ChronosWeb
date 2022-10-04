@@ -38,3 +38,6 @@ Route::resource('tags', TagController::class);
 Route::get('/api/events', [EventApiController::class, 'index']);
 Route::get('/api/categories', [DictionaryApiController::class, 'getCategories']);
 Route::get('/api/countries', [DictionaryApiController::class, 'getCountries']);
+
+Route::get('/home', [TypeaheadController::class, 'autocomplete.index']);
+Route::get('/autocomplete-search', [TypeaheadController::class, 'autocompleteSearch']);
