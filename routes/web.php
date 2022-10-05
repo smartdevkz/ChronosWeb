@@ -6,6 +6,7 @@ use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\TypeaheadController;
 use App\Http\Controllers\Api\EventApiController;
 
 /*
@@ -35,6 +36,11 @@ Route::get('/compare', [EventController::class, 'list'])->name('events.list');
 Route::resource('countries', CountryController::class);
 Route::resource('tags', TagController::class);
 
+Route::get('/autocomplete-search', [TypeaheadController::class, 'autocompleteSearch']);
+Route::get('/autocomplete', [TypeaheadController::class, 'index'])->name('autocomplete.index');
+
 Route::get('/api/events', [EventApiController::class, 'index']);
 Route::get('/api/categories', [DictionaryApiController::class, 'getCategories']);
 Route::get('/api/countries', [DictionaryApiController::class, 'getCountries']);
+
+

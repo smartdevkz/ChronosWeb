@@ -46,6 +46,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('tags.index') }}"> Tags </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('autocomplete.index') }}"> Autocomplete </a>
+                        </li>
                         @endauth
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('events.list') }}"> Compare </a>
