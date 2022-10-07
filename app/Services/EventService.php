@@ -8,7 +8,7 @@ class EventService
 {
     function getAll()
     {
-        return Event::orderBy('id', 'desc')->paginate(5);
+        return Event::orderBy('id', 'desc')->paginate(2);
     }
 
     function get($id)

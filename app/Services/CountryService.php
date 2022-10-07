@@ -8,7 +8,7 @@ class CountryService
 {
     function getAll()
     {
-        return Country::orderBy('id', 'desc')->paginate(5);
+        return Country::orderBy('id', 'desc')->paginate(2);
     }
 
     function get($id)

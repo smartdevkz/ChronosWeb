@@ -8,7 +8,7 @@ class TagService
 {
     function getAll()
     {
-        return Tag::orderBy('id', 'desc')->paginate(10);
+        return Tag::orderBy('id', 'desc')->paginate(2);
     }
 
     function get($id)

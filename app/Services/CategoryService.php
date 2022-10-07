@@ -8,7 +8,7 @@ class CategoryService
 {
     function getAll()
     {
-        return Category::orderBy('id', 'desc')->paginate(1000);
+        return Category::orderBy('id', 'desc')->paginate(2);
     }
 
     function get($id)
